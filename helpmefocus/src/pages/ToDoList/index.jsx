@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { Typography, TextField } from '@material-ui/core';
+import { TextField, IconButton, Grid } from '@material-ui/core';
+import AddIcon from '@material-ui/icons/Add';
 
-import tasks from './tasks';
+import ToDoTask from './components/ToDoTask';
+
+import ToDoListTitle from '../../graphics/ToDo_text.png';
+import './styles.css';
 
 const ToDoList = () => {
+  const [tasks, setTasks] = useState([]);
   const [currTask, setCurrTask] = useState('');
   const [taskId, setTaskId] = useState(0);
 
@@ -12,32 +17,65 @@ const ToDoList = () => {
   };
 
   const handleSubmit = (event) => {
-    if (event.target.value !== '' && event.key === 'Enter') {
-      tasks.push({ id: taskId, task: currTask });
+    if (currTask !== '' && event.key === 'Enter') {
+      setTasks((prevTasks) => {
+        return [...prevTasks, { id: taskId, task: currTask }];
+      });
       setCurrTask('');
-
       setTaskId(taskId + 1);
     }
   };
 
+  const addTask = () => {
+    if (currTask !== '') {
+      setTasks((prevTasks) => {
+        return [...prevTasks, { id: taskId, task: currTask }];
+      });
+      setCurrTask('');
+      setTaskId(taskId + 1);
+    }
+  };
+
+  const deleteTask = (key) => {
+    setTasks((prevTasks) => {
+      return prevTasks.filter((taskItem, taskKey) => {
+        return taskKey !== key;
+      });
+    });
+  };
+
   return (
-    <div className="container">
-      <Typography variant="h4">To-Do List</Typography>
+    <Grid container justify="center" alignItems="center">
+      <div className="container">
+        <img className="title" src={ToDoListTitle} alt="To-Do List" />
 
-      <TextField
-        id="toDoListInput"
-        variant="outlined"
-        label="Task"
-        value={currTask}
-        margin="dense"
-        onChange={handleChange}
-        onKeyPress={handleSubmit}
-      />
+        <div className="inputToDo">
+          <TextField
+            className="toDoListInput"
+            variant="outlined"
+            label="Task"
+            value={currTask}
+            margin="dense"
+            onChange={handleChange}
+            onKeyUp={handleSubmit}
+          />
+          <div className="addButton">
+            <IconButton size="small" onClick={addTask}>
+              <AddIcon className="addIcon" />
+            </IconButton>
+          </div>
+        </div>
 
-      {tasks.map((eachTask) => (
-        <p>{eachTask.id} {eachTask.task} </p>
-      ))}
-    </div>
+        {tasks.map((eachTask, index) => (
+          <ToDoTask
+            key={eachTask.id}
+            id={index}
+            tasks={eachTask}
+            onClickDelete={() => deleteTask(index)}
+          />
+        ))}
+      </div>
+    </Grid>
   );
 };
 

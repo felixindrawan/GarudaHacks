@@ -2,13 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // eslint-disable-next-line import/extensions
-import App from './App';
+import ToDoList from './pages/ToDoList';
 import * as serviceWorker from './serviceWorker';
 import 'fontsource-roboto';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ToDoList />
   </React.StrictMode>,
   document.getElementById('root')
 );
