@@ -1,14 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// eslint-disable-next-line import/extensions
+
+import { Route, Switch, BrowserRouter as Router } from 'react-router-dom';
+
+import Menu from './pages/Menu';
 import ToDoList from './pages/ToDoList';
+import Pomodoro from './pages/Pomodoro';
+
+// eslint-disable-next-line import/extensions
 import * as serviceWorker from './serviceWorker';
 import 'fontsource-roboto';
 
 ReactDOM.render(
   <React.StrictMode>
-    <ToDoList />
+    <Menu />
+
+    <Router>
+      <Switch>
+        <Route exact path="/" component={ToDoList} />
+        <Route path="/ToDoList" component={ToDoList} />
+        <Route path="/Pomodoro" component={Pomodoro} />
+      </Switch>
+    </Router>
   </React.StrictMode>,
   document.getElementById('root')
 );
