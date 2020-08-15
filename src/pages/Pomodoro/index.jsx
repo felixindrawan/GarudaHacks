@@ -57,11 +57,6 @@ const Pomodoro = () => {
             onChange={handleChange}
             onKeyUp={handleSubmit}
           />
-          <div className="addButton">
-            <IconButton size="small" onClick={addTask}>
-              <AddIcon className="addIcon" />
-            </IconButton>
-          </div>
         </div>
       </div>
     </Grid>
