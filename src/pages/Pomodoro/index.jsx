@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
-import { TextField, IconButton, Grid } from '@material-ui/core';
-import AddIcon from '@material-ui/icons/Add';
+import { TextField, Grid } from '@material-ui/core';
 
 import ToDoListTitle from '../../graphics/ToDo_text.png';
 import './styles.css';
@@ -22,24 +21,6 @@ const Pomodoro = () => {
       setCurrTask('');
       setTaskId(taskId + 1);
     }
-  };
-
-  const addTask = () => {
-    if (currTask !== '') {
-      setTasks((prevTasks) => {
-        return [...prevTasks, { id: taskId, task: currTask }];
-      });
-      setCurrTask('');
-      setTaskId(taskId + 1);
-    }
-  };
-
-  const deleteTask = (key) => {
-    setTasks((prevTasks) => {
-      return prevTasks.filter((taskItem, taskKey) => {
-        return taskKey !== key;
-      });
-    });
   };
 
   return (
