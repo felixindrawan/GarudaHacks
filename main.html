@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title> help me focus</title>
+    
+</head>
+<link rel="stylesheet" href="style.css">
+
+<body>
+    <div class="titleBox">
+        <div class="mainTitle">
+            
+            <a href="google.com"><!--insert homepage link-->
+                <img src="image/Withcolor.png" alt=""style="width:99%;height:99%;">
+                </a>
+        </div>
+        <div class="descriptionOne">
+            <h2> focusing on being more productive </h2>
+        </div>
+        
+    </div>
+    <div class="content">
+        <div class="itemAids">
+            <div class="itemAid">
+                <div class="portfolio-img-background" style="background-image:url(image/back.png)"></div>
+                    <div class="img-text-wrapper" style=" 
+                        padding-left: 0px; 
+                        padding-right: 0px;
+                        padding-top: 20px;">
+
+                        <div class="logo-wrapper">
+                            <a href="https://www.helpmefocus.xyz/"> <!--insert todolist link-->
+                            <img src="image/todolist.png" alt=""></a></div>
+                        <div class="subtitle">click to organize your day and boost productivity </div>
+                    </div>
+                
+
+
+
+            </div>
+
+            <div class="itemAid">
+                <div class="portfolio-img-background" style="background-image:url(image/back2.png)"></div>
+                    <div class="img-text-wrapper" style=" 
+                    padding-left: 0px; 
+                    padding-right: 0px;
+                    padding-top: 20px;">
+
+
+                        <div class="logo-wrapper">
+                            <a href="https://www.google.com/"> <!--insert pomodoro link-->
+                            <img src="image/tomato.png" alt=""></a></div>
+                        <div class="subtitle">click to maximize your efficiency using timed intervals</div>
+                    </div>
+                
+
+
+
+            </div>
+            <div class="itemAid">
+                <div class="portfolio-img-background" style="background-image:url(image/back3.png)"></div>
+                    <div class="img-text-wrapper" style=" 
+                    padding-left: 0px; 
+                    padding-right: 0px;
+                    padding-top: 20px;">
+
+                        <div class="logo-wrapper">
+                            <a href="https://open.spotify.com/playlist/0vvXsWCC9xrXsKd4FyS8kM"> 
+                            <img src="image/unknown.png" alt=""></a></div>
+                        <div class="subtitle">click to improve your mood and increase memorization</div>
+                    </div>
+
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+<script>
+    const portfolioItems = document.querySelectorAll('.itemAid');
+
+    portfolioItems.forEach(portfolioItem => {
+
+        portfolioItem.addEventListener('mouseover', () => {
+           console.log(portfolioItem.childNodes[1].classList)
+           portfolioItem.childNodes[1].classList.add('img-darken');
+
+
+        });
+        portfolioItem.addEventListener('mouseout', () => {
+           console.log(portfolioItem.childNodes[1].classList)
+           portfolioItem.childNodes[1].classList.remove('img-darken');
+        });
+    });
+</script>
+
+</html>
