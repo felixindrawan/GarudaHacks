@@ -11,6 +11,11 @@
 
   box-shadow: 0.2rem 0.2rem 1rem 0 rgba(0, 0, 0, 0.19);
 }
+
+.taskContainer:hover{
+  opacity: 0.6;
+}
+
 .typorgraphyText{
   max-width: 20rem;
 }
